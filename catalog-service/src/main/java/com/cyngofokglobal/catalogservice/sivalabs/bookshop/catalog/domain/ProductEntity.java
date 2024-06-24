@@ -3,10 +3,10 @@ package com.cyngofokglobal.catalogservice.sivalabs.bookshop.catalog.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotEmpty;
+import java.math.BigDecimal;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 @Getter
 @Setter
 @Entity
@@ -33,6 +33,4 @@ public class ProductEntity {
     @DecimalMin("0.1")
     @Column(nullable = false)
     private BigDecimal price;
-
 }
-

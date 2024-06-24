@@ -4,7 +4,6 @@ import com.cyngofokglobal.catalogservice.sivalabs.bookshop.catalog.domain.PagedR
 import com.cyngofokglobal.catalogservice.sivalabs.bookshop.catalog.domain.Product;
 import com.cyngofokglobal.catalogservice.sivalabs.bookshop.catalog.domain.ProductNotFoundException;
 import com.cyngofokglobal.catalogservice.sivalabs.bookshop.catalog.domain.ProductService;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,16 +17,15 @@ class ProductController {
     }
 
     @GetMapping
-    PagedResult<Product> getProducts(@RequestParam(name = "page", defaultValue = "1") int pageNo){
+    PagedResult<Product> getProducts(@RequestParam(name = "page", defaultValue = "1") int pageNo) {
         return productService.getProducts(pageNo);
     }
 
     @GetMapping("/{code}")
-    ResponseEntity<Product> getProductByCode(@PathVariable String code){
-        return productService.getProductByCode(code)
+    ResponseEntity<Product> getProductByCode(@PathVariable String code) {
+        return productService
+                .getProductByCode(code)
                 .map(ResponseEntity::ok)
                 .orElseThrow(() -> ProductNotFoundException.forCode(code));
     }
-
-
 }

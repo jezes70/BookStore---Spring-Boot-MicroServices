@@ -1,24 +1,23 @@
 package com.cyngofokglobal.catalogservice.sivalabs.bookshop.catalog.web.controllers;
 
-import com.cyngofokglobal.catalogservice.AbstractIT;
-import com.cyngofokglobal.catalogservice.sivalabs.bookshop.catalog.domain.Product;
-import io.restassured.http.ContentType;
-import org.junit.jupiter.api.Test;
-import org.springframework.test.context.jdbc.Sql;
-
-import java.math.BigDecimal;
-
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
+
+import com.cyngofokglobal.catalogservice.AbstractIT;
+import com.cyngofokglobal.catalogservice.sivalabs.bookshop.catalog.domain.Product;
+import io.restassured.http.ContentType;
+import java.math.BigDecimal;
+import org.junit.jupiter.api.Test;
+import org.springframework.test.context.jdbc.Sql;
+
 @Sql("/test-data.sql")
 class ProductControllerTest extends AbstractIT {
 
     @Test
-     void shouldReturnProducts() {
-        given()
-                .contentType(ContentType.JSON)
+    void shouldReturnProducts() {
+        given().contentType(ContentType.JSON)
                 .when()
                 .get("/api/products")
                 .then()
@@ -32,6 +31,7 @@ class ProductControllerTest extends AbstractIT {
                 .body("hasNext", is(true))
                 .body("hasPrevious", is(false));
     }
+
     @Test
     void shouldGetProductByCode() {
         Product product = given().contentType(ContentType.JSON)
@@ -49,6 +49,7 @@ class ProductControllerTest extends AbstractIT {
         assertThat(product.description()).isEqualTo("Winning will make you famous. Losing means certain death...");
         assertThat(product.price()).isEqualTo(new BigDecimal("34.0"));
     }
+
     @Test
     void shouldReturnNotFoundWhenProductCodeNotExists() {
         String code = "invalid_product_code";
