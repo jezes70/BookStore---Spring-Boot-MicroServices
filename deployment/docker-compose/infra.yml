@@ -37,7 +37,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: 600
+          memory: 600m
 
   bookshop-rabbitmq:
     image: rabbitmq:3.12.11-management
@@ -100,20 +100,3 @@ services:
         limits:
           memory: 2gb
 
-#  catalog-service:
-#    image: paketobuildpacks/bookshop-catalog-service
-#    container_name: catalog-service
-#    ports:
-#      - "8083:8083"
-#    environment:
-#      - SPRING_PROFILE_ACTIVE=docker
-#      - SPRING_DATASOURCE_URL=jdbc:postgresql://catalog-db:5432/postgres
-#      - SPRING_DATASOURCE_USERNAME=postgres
-#      - SPRING_DATASOURCE_PASSWORD=postgres
-#    depends_on:
-#      catalog-db:
-#        condition: service_healthy
-#    deploy:
-#      resources:
-#        limits:
-#          memory: 700m
