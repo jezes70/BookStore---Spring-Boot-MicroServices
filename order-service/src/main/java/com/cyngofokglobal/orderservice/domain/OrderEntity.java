@@ -1,12 +1,10 @@
 package com.cyngofokglobal.orderservice.domain;
 
-import com.cyngofokglobal.orderservice.domain.models.Customer;
+import com.cyngofokglobal.orderservice.domain.models.Address;
 import com.cyngofokglobal.orderservice.domain.models.OrderStatus;
-import com.rabbitmq.client.Address;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import zipkin2.internal.Nullable;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -35,9 +33,10 @@ public class OrderEntity {
     @AttributeOverrides(
             value = {
                     @AttributeOverride(name = "name", column = @Column(name = "customer_name")),
-                    @AttributeOverride(name = "name", column = @Column(name = "customer_email")),
+                    @AttributeOverride(name = "email", column = @Column(name = "customer_email")),
                     @AttributeOverride(name = "phone", column = @Column(name = "customer_phone"))
             })
+
     private Customer customer;
 
     @Embedded
@@ -50,6 +49,7 @@ public class OrderEntity {
                     @AttributeOverride(name = "zipcode", column = @Column(name = "delivery_address_zip_code")),
                     @AttributeOverride(name = "country", column = @Column(name = "delivery_address_country")),
             })
+
     private Address deliveryAddress;
 
     @Enumerated(EnumType.STRING)

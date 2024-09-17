@@ -1,6 +1,6 @@
 package com.cyngofokglobal.orderservice.domain.models;
 
-import com.rabbitmq.client.Address;
+import com.cyngofokglobal.orderservice.domain.Customer;
 
 import java.time.LocalDateTime;
 import java.util.Set;

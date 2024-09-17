@@ -1,5 +1,6 @@
 package com.cyngofokglobal.orderservice.domain;
 
+import com.cyngofokglobal.orderservice.domain.models.OrderEventType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,6 +32,6 @@ public class OrderEventEntity {
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    @Column(name = "upated_at")
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 }
