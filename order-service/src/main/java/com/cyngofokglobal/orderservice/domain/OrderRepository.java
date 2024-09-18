@@ -12,7 +12,7 @@ interface OrderRepository extends JpaRepository<OrderEntity, Long> {
     List<OrderEntity> findByStatus(OrderStatus status);
     Optional<OrderEntity> findByOrderNumber(String orderNumber);
 
-    default void updatedOrderStatus(String orderNumber, OrderStatus status) {
+    default void updateOrderStatus(String orderNumber, OrderStatus status) {
         OrderEntity order = this.findByOrderNumber(orderNumber).orElseThrow();
         order.setStatus(status);
         this.save(order);
@@ -20,7 +20,7 @@ interface OrderRepository extends JpaRepository<OrderEntity, Long> {
 
     @Query(
              """
-           select  new com.cyngofokglobal.orderservice.domain.models.OrderStatus(o.orderNumber, o.status)
+           select  new com.cyngofokglobal.orderservice.domain.models.OrderSummary(o.orderNumber, o.status)
                    
            from OrderEntity o
            where o.userName = :userName
