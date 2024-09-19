@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
 
+
 import java.time.Duration;
 
 @Configuration
@@ -17,6 +18,6 @@ class CatalogServiceClientConfig {
                 .requestFactory(ClientHttpRequestFactories.get(ClientHttpRequestFactorySettings.DEFAULTS
                         .withConnectTimeout(Duration.ofSeconds(6))
                         .withReadTimeout(Duration.ofSeconds(6))))
-                .build()
+                .build();
     }
 }

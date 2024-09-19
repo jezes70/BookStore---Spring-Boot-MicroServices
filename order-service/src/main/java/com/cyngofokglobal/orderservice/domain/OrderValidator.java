@@ -6,6 +6,8 @@ import com.cyngofokglobal.orderservice.domain.models.OrderItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import com.cyngofokglobal.orderservice.clients.catalog.Product;
+
 
 import java.util.Set;
 
