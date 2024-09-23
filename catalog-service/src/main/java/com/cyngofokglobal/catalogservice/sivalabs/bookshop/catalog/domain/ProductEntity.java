@@ -18,10 +18,10 @@ class ProductEntity {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    @NotEmpty(message = "product code is required")
+    @NotEmpty(message = "Product code is required")
     private String code;
 
-    @NotEmpty(message = "product name is required")
+    @NotEmpty(message = "Product name is required")
     @Column(nullable = false)
     private String name;
 
@@ -29,8 +29,19 @@ class ProductEntity {
 
     private String imageUrl;
 
-    @NotEmpty(message = "product price is required")
+    @NotEmpty(message = "Product price is required")
     @DecimalMin("0.1")
     @Column(nullable = false)
     private BigDecimal price;
+
+    public ProductEntity() {}
+
+    public ProductEntity(Long id, String code, String name, String description, String imageUrl, BigDecimal price) {
+        this.id = id;
+        this.code = code;
+        this.name = name;
+        this.description = description;
+        this.imageUrl = imageUrl;
+        this.price = price;
+    }
 }

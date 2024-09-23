@@ -3,15 +3,18 @@ package com.cyngofokglobal.orderservice.domain;
 import com.cyngofokglobal.orderservice.domain.models.Address;
 import com.cyngofokglobal.orderservice.domain.models.OrderStatus;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.Set;
 
+
+//@Getter
+//@Setter
 @Entity
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "orders")
 class OrderEntity {
 

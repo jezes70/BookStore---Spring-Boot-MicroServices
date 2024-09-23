@@ -1,4 +1,4 @@
-name: Oder Service
+name: Order Service
 
 on:
   push:

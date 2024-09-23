@@ -1,6 +1,6 @@
 package com.cyngofokglobal.catalogservice.sivalabs.bookshop.catalog.domain;
 
-import com.cyngofokglobal.catalogservice.sivalabs.bookshop.catalog.ApplicationProperties;
+import com.cyngofokglobal.catalogservice.ApplicationProperties;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

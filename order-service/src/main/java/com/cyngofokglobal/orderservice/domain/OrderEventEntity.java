@@ -2,14 +2,17 @@ package com.cyngofokglobal.orderservice.domain;
 
 import com.cyngofokglobal.orderservice.domain.models.OrderEventType;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
+
+//@Setter
+//@Getter
 @Entity
-@Setter
-@Getter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "order_evemts")
 public class OrderEventEntity {
     @Id

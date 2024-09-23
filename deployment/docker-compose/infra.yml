@@ -21,7 +21,7 @@ services:
           memory: 600m
 
   orders_db:
-    image: postgres:16-alpine
+    image: postgres:14-alpine
     container_name: orders-db
     environment:
       - POSTGRES_USER=postgres
