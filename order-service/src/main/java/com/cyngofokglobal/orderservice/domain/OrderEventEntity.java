@@ -9,8 +9,9 @@ import java.time.LocalDateTime;
 
 //@Setter
 //@Getter
-@Entity
 @Data
+@Entity
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "order_evemts")

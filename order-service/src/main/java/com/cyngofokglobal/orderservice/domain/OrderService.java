@@ -25,10 +25,10 @@ public class OrderService {
         this.orderEventService = orderEventService;
     }
 
-    public CreateOrderResponse createOrder(String useName, CreateOrderRequest request) {
+    public CreateOrderResponse createOrder(String userName, CreateOrderRequest request) {
         orderValidator.validate(request);
         OrderEntity newOrder = OrderMapper.convertToEntity(request);
-        newOrder.setUserName(useName);
+        newOrder.setUserName(userName);
         OrderEntity saveOrder = this.orderRepository.save(newOrder);
         log.info("Create Order with orderNumber={}", saveOrder.getOrderNumber());
         OrderCreatedEvent orderCreatedEvent = OrderEventMapper.buildOrderCreatedEvent(saveOrder);
