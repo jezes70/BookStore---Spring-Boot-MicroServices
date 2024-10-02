@@ -13,7 +13,7 @@ services:
       - MANAGEMENT_TRACKING_ENABLED=true
       - MANAGEMENT_ZIPKIN_TRACKING_ENDPOINT=http://tempo9090
     ports:
-      - "8081:8081"
+      - "8081:8082"
     restart: unless-stopped
     depends_on:
       catalog-db:
@@ -73,7 +73,7 @@ services:
       - MANAGEMENT_TRACING_ENABLED=true
       - OAUTH2_SERVER_URL=http://keyloak:9111
     ports:
-      - "8087:8087"
+      - "8088:8088"
     restart: unless-stopped
     depends_on:
       orders-db:
@@ -97,7 +97,7 @@ services:
       - MANAGEMENT_TRACING_ENABLED=true
       - MANAGEMENT_ZIPKIN_TRACING_ENDPOINT=http:tempo:9090
     ports:
-      - "8085:8085"
+      - "8989:8989"
     restart: unless-stopped
     deploy:
       resources:
