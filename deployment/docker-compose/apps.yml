@@ -13,7 +13,7 @@ services:
       - MANAGEMENT_TRACKING_ENABLED=true
       - MANAGEMENT_ZIPKIN_TRACKING_ENDPOINT=http://tempo9090
     ports:
-      - "8081:8082"
+      - "8082:8082"
     restart: unless-stopped
     depends_on:
       catalog-db:
@@ -30,7 +30,7 @@ services:
     container_name: order-service
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - DB_URL=jdbc:postgresql://orders-db:15432/postgres
+      - DB_URL=jdbc:postgresql://orders-db:25432/postgres
       - DB_USERNAME=postgres
       - DB_PASSWORD=postgres
       - RABBITMQ_HOST=bookshop-rabbitmq
@@ -58,10 +58,10 @@ services:
 
   notification-service:
     image: paketobuildpacks/bookshop-order-service
-    container_name: order-service
+    container_name: notification-service
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - DB_URL=jdbc:postgresql://notifications-db:15432/postgres
+      - DB_URL=jdbc:postgresql://notifications-db:5432/postgres
       - DB_USERNAME=postgres
       - DB_PASSWORD=postgres
       - RABBITMQ_HOST=bookshop-rabbitmq
@@ -76,7 +76,7 @@ services:
       - "8088:8088"
     restart: unless-stopped
     depends_on:
-      orders-db:
+      notifications -db:
         condition: service_healthy
       bookshop-rabbitmq:
         condition: service_healthy
