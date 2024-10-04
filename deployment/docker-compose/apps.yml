@@ -9,7 +9,7 @@ services:
       - DB_URL=jdbc:postgresql://catalog-db:15432/postgres
       - DB_USERNAME=postgres
       - DB_PASSWORD=postgres
-      - SWAGGER_API_GATEWAY_URL=http://api-gateway:8085/catalog
+      - SWAGGER_API_GATEWAY_URL=http://api-gateway:8989/catalog
       - MANAGEMENT_TRACKING_ENABLED=true
       - MANAGEMENT_ZIPKIN_TRACKING_ENDPOINT=http://tempo9090
     ports:
@@ -38,7 +38,7 @@ services:
       - RABBITMQ_USERNAME=guest
       - RABBITMQ_PASSWORD=guest
       - OAUTH2_SERVER_URL=http://keyloak:9111
-      - SWAGGER_API_GATEWAY_URL=http://api-gateway:8085/orders
+      - SWAGGER_API_GATEWAY_URL=http://api-gateway:8989/orders
       - MANAGEMENT_TRACING_ENABLED=true
       - MANAGEMENT_ZIPKIN_TRACING_ENDPOINT=http://tempo:9090
     ports:
@@ -92,7 +92,7 @@ services:
     container_name: api-gateway
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - CATALOG_SERVICE_URL=http://catalog-service:8081
+      - CATALOG_SERVICE_URL=http://catalog-service:8082
       - ORDER_SERVICE_URL=http://order-service:8084
       - MANAGEMENT_TRACING_ENABLED=true
       - MANAGEMENT_ZIPKIN_TRACING_ENDPOINT=http:tempo:9090
@@ -111,7 +111,7 @@ services:
     container_name: bookshop-webapp
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - BOOKSTORE_API_GATEWAY_URL=http:/api-gateway:8085
+      - BOOKSTORE_API_GATEWAY_URL=http:/api-gateway:8989
       - OAUTH2_SERVE_URL=http://keycloak:9111
       - MANAGEMENT_TRACING_ENABLED=true
       - MANAGEMENT_ZIPKIN_TRACING_ENDPOINT=http://tempo:9090

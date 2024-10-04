@@ -22,6 +22,9 @@
       <modules>
           <module>catalog-service</module>
           <module>order-service</module>
+          <module>api-gateway</module>
+          <module>bookshop-webapp</module>
+          <module>notification-service</module>
       </modules>
     <build>
         <plugins>

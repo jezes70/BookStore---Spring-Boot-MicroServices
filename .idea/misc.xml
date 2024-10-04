@@ -6,6 +6,8 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$USER_HOME$/Downloads/catalog-service/pom.xml" />
+        <option value="$USER_HOME$/Downloads/api-gateway/pom.xml" />
+        <option value="$USER_HOME$/Downloads/bookshop-webapp/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

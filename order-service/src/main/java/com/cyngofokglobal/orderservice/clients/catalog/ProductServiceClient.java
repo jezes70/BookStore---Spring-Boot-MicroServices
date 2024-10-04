@@ -1,9 +1,9 @@
 package com.cyngofokglobal.orderservice.clients.catalog;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.retry.annotation.CircuitBreaker;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
@@ -18,8 +18,7 @@ public class ProductServiceClient {
     public ProductServiceClient(RestClient restClient) {
         this.restClient = restClient;
     }
-
-//    @CircuitBreaker(name = "catalog-service")
+    @CircuitBreaker(name = "catalog service")
     @Retry(name = "catalog-service", fallbackMethod = "getProductByCodeFallback")
     public Optional<Product> getProductByCode(String code) {
         var product =

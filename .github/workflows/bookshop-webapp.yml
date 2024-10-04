@@ -1,9 +1,9 @@
-name: Order Service
+name: BookShop Webapp
 
 on:
   push:
     paths:
-      - order-service/**
+      - bookshop-webapp/**
     branches:
       - '**'
       - pull_request:
@@ -14,8 +14,8 @@ on:
       name: Build
       runs-on: ubuntu-latest
       env:
-        working-directory: ./order-service
-        DOCKER_IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/bookshop-order-service
+        working-directory: ./bookshop-webapp
+        DOCKER_IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/bookshop-webapp
       defaults:
         run:
           working-directory: ${{ env.working-directory }}
