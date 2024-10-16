@@ -2,6 +2,7 @@ package com.cyngofokglobal.bookshop_webapp.clients;
 
 import com.cyngofokglobal.bookshop_webapp.ApplicationProperties;
 import com.cyngofokglobal.bookshop_webapp.clients.catalog.CatalogServiceClient;
+import com.cyngofokglobal.bookshop_webapp.clients.orders.OrderServiceClient;
 import org.springframework.boot.web.client.ClientHttpRequestFactories;
 import org.springframework.boot.web.client.ClientHttpRequestFactorySettings;
 import org.springframework.boot.web.client.RestClientCustomizer;
@@ -14,10 +15,10 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 import java.time.Duration;
 
 @Configuration
-public class ClientsConfig {
+class ClientsConfig {
     private final ApplicationProperties properties;
 
-    public ClientsConfig(ApplicationProperties properties) {
+    ClientsConfig(ApplicationProperties properties) {
         this.properties = properties;
     }
     @Bean
@@ -41,3 +42,6 @@ public class ClientsConfig {
         return factory.createClient(OrderServiceClient.class);
     }
 }
+
+
+
