@@ -35,11 +35,11 @@ class ProductController {
                 .orElseThrow(() -> ProductNotFoundException.forCode(code));
     }
 
-//    void sleep() {
-//        try {
-//            Thread.sleep(7000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    void sleep() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
