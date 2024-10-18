@@ -9,6 +9,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -18,9 +20,9 @@ class GetOrdersTests  extends AbstractIT {
     private MockMvc mockMvc;
 
     @Test
-    @WithMockOAuth2User(username = "user")
+    @WithMockOAuth2User(username = "user", role = {"ROLE_USER"})
     void shouldGetOrdersSuccessfully() throws Exception {
-        mockMvc.perform((get("/api/orders"))
+        mockMvc.perform(get("/api/orders"))
                 .andExpect(status().isOk());
     }
 }
