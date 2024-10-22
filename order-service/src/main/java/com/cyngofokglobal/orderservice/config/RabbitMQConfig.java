@@ -2,6 +2,7 @@ package com.cyngofokglobal.orderservice.config;
 
 import com.cyngofokglobal.orderservice.ApplicationProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.amqp.core.*;
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
+@Builder
 class RabbitMQConfig {
     private final ApplicationProperties properties;
     RabbitMQConfig(ApplicationProperties properties) {

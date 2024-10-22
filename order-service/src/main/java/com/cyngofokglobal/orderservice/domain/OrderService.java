@@ -1,6 +1,7 @@
 package com.cyngofokglobal.orderservice.domain;
 
 import com.cyngofokglobal.orderservice.domain.models.*;
+import lombok.Builder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import java.util.Optional;
 
 @Service
 @Transactional
+@Builder
 public class OrderService {
     private static final Logger log = LoggerFactory.getLogger(OrderService.class);
     private static final List<String> DELIVERY_ALLOWED_COUNTRIES = List.of("NIGERIA", "GERMANY", "FRANCE", "CANADA", "JAPAN", "AUSTRALIA", "USA");

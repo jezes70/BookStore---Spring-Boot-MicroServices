@@ -1,12 +1,13 @@
 package com.cyngofokglobal.orderservice.domain;
 
 import com.cyngofokglobal.orderservice.domain.models.*;
+import lombok.Builder;
 
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
+@Builder
 public class OrderEventMapper {
 
     static  OrderCreatedEvent buildOrderCreatedEvent(OrderEntity order) {

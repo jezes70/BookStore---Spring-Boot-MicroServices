@@ -1,6 +1,7 @@
 package com.cyngofokglobal.orderservice.clients.catalog;
 
 import com.cyngofokglobal.orderservice.ApplicationProperties;
+import lombok.Builder;
 import org.springframework.boot.web.client.ClientHttpRequestFactories;
 import org.springframework.boot.web.client.ClientHttpRequestFactorySettings;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,7 @@ import org.springframework.web.client.RestClient;
 import java.time.Duration;
 
 @Configuration
+@Builder
 class CatalogServiceClientConfig {
     @Bean
     RestClient restClient(RestClient.Builder builder, ApplicationProperties properties) {
